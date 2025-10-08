@@ -27,8 +27,11 @@ bool addAt(struct Array* data, int element, int index) {
     if (data->count >= SIZE) {
         return false;
     }
-    if (index < 0 || index > data->count) {
-        return false;
+    // If index <= 0, insert at beginning. If index >= count, insert at end.
+    if (index <= 0) {
+        index = 0;
+    } else if (index >= data->count) {
+        index = data->count;
     }
     for (int i = data->count; i > index; i--) {
         data->values[i] = data->values[i - 1];
@@ -78,9 +81,34 @@ void display(struct Array data, FILE* out, bool all) {
     if (out == NULL) {
         return;
     }
-    (void)all; // currently unused; keep parameter to match header
-    for (int i = 0; i < data.count; i++) {
-        fprintf(out, "%d\n", data.values[i]);
+    if (all) {
+        // Print all SIZE elements as a comma-separated list
+        if (SIZE > 0) {
+            fputs("    ", out);
+            for (int i = 0; i < SIZE; i++) {
+                fprintf(out, "%d", data.values[i]);
+                if (i < SIZE - 1) {
+                    fputs(", ", out);
+                }
+            }
+            fputc('\n', out);
+        }
+        // Second line: size of the array shown
+        fprintf(out, "    SIZE of array: %d\n", SIZE);
+    } else {
+        // Print only the set elements
+        if (data.count > 0) {
+            fputs("    ", out);
+            for (int i = 0; i < data.count; i++) {
+                fprintf(out, "%d", data.values[i]);
+                if (i < data.count - 1) {
+                    fputs(", ", out);
+                }
+            }
+            fputc('\n', out);
+        }
+        // Second line: count of elements
+        fprintf(out, "    Count of elements in array: %d\n", data.count);
     }
 }
 
