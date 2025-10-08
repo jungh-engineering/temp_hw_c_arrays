@@ -74,18 +74,18 @@ bool removeAt(struct Array* data, int index) {
 // If all is true, then every element in the array is displayed, including any that may not have values. Also a message about the size of the array is given on the next line
 // If all is false, then you only display the elements that have been set. Also, on the next line, a message about how many elements are in the array is output.
 // See the example output for details on the second line of output.
-bool display(struct Array* data, FILE* out, bool all) {
+void display(struct Array data, FILE* out, bool all) {
     if (out == NULL) {
-        return false;
+        return;
     }
-    for (int i = 0; i < data->count; i++) {
-        fprintf(out, "%d\n", data->values[i]);
+    (void)all; // currently unused; keep parameter to match header
+    for (int i = 0; i < data.count; i++) {
+        fprintf(out, "%d\n", data.values[i]);
     }
-    return true;
 }
 
 // This function takes a pointer to an Array struct. All elements should be reset to 0.
-bool clear(struct Array* data) {
-    data->count = 0;
-    return true;
+void clear(struct Array* data) {
+    // Reuse initialize() to reset elements and count
+    initialize(data);
 }
