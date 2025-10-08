@@ -1,6 +1,8 @@
 
 
 
+
+#include "array.h"
 // This function will set every array index to the value 0 and sets the count of the data to 0.
 void initialize(struct Array* data) {
     for (int i = 0; i < SIZE; i++) {
@@ -22,6 +24,9 @@ bool add(struct Array* data, int element) {
 // This function takes a pointer to an Array struct, a number as an element, and an index. The element should be placed at the given index in the Array. Return true if the addition was successful.
 // If the given index is 0 or less than 0, add data to the beginning of the array. If index is count or greater than count, add data to the end of the array. Otherwise, make a space in the array and store the data at the given index. Any data that was at the given index and in index positions greater than the given one, are moved up one index position. If the array has no more available indices, then false is returned from the function. Otherwise, return true.
 bool addAt(struct Array* data, int element, int index) {
+    if (data->count >= SIZE) {
+        return false;
+    }
     if (index < 0 || index > data->count) {
         return false;
     }
