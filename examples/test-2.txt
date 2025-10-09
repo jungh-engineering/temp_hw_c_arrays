@@ -1,0 +1,33 @@
+add 43 -9
+add 29 0
+add 5 -6
+add 11 2
+add 16 7
+add 8 18
+add 36 -3
+add 52 1
+add 15 -1
+add 13 -5
+add 8 22
+add 37 3
+add 9 0
+add 36 6
+add 43 27
+add 48 30
+add 14 -7
+add 27 17
+add 36 -3
+add 10 36
+display data
+removeAt 10
+removeAt 4
+removeAt 17
+removeAt 15
+removeAt 9
+display data
+removeAt 2105290269
+removeAt 2104624470
+removeAt 290378330
+removeAt 410478509
+removeAt 71141712
+display data

@@ -1,0 +1,69 @@
+Command: add 43 -9
+	43 successfully added
+Command: add 29 0
+	29 successfully added
+Command: add 5 -6
+	5 successfully added
+Command: add 11 2
+	11 successfully added
+Command: add 16 7
+	16 successfully added
+Command: add 8 18
+	8 successfully added
+Command: add 36 -3
+	36 successfully added
+Command: add 52 1
+	52 successfully added
+Command: add 15 -1
+	15 successfully added
+Command: add 13 -5
+	13 successfully added
+Command: add 8 22
+	8 successfully added
+Command: add 37 3
+	37 successfully added
+Command: add 9 0
+	9 successfully added
+Command: add 36 6
+	36 successfully added
+Command: add 43 27
+	43 successfully added
+Command: add 48 30
+	48 successfully added
+Command: add 14 -7
+	14 successfully added
+Command: add 27 17
+	27 successfully added
+Command: add 36 -3
+	36 successfully added
+Command: add 10 36
+	10 successfully added
+Command: display data
+	36, 14, 9, 13, 15, 36, 37, 52, 36, 5, 29, 11, 43, 16, 8, 8, 43, 48, 27, 10
+	Count of elements in array: 20
+Command: removeAt 10
+	data removed from array at index 10
+Command: removeAt 4
+	data removed from array at index 4
+Command: removeAt 17
+	data removed from array at index 17
+Command: removeAt 15
+	data removed from array at index 15
+Command: removeAt 9
+	data removed from array at index 9
+Command: display data
+	36, 14, 9, 13, 36, 37, 52, 36, 5, 43, 16, 8, 8, 43, 27
+	Count of elements in array: 15
+Command: removeAt 2105290269
+	data not removed array at index 2105290269
+Command: removeAt 2104624470
+	data not removed array at index 2104624470
+Command: removeAt 290378330
+	data not removed array at index 290378330
+Command: removeAt 410478509
+	data not removed array at index 410478509
+Command: removeAt 71141712
+	data not removed array at index 71141712
+Command: display data
+	36, 14, 9, 13, 36, 37, 52, 36, 5, 43, 16, 8, 8, 43, 27
+	Count of elements in array: 15

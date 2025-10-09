@@ -1,0 +1,24 @@
+add 38 0
+add 52 4
+add 15 -9
+add 44 7
+add 12 3
+add 53 4
+add 32 -9
+add 32 2
+add 35 -3
+add 48 21
+add 38 28
+add 9 13
+add 52 10
+add 21 7
+add 45 -8
+add 17 -3
+add 36 -2
+add 38 32
+add 47 28
+add 32 -8
+display data
+clear
+display data
+display all

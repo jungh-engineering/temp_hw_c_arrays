@@ -1,0 +1,30 @@
+add 50 -4
+add 18 0
+add 14 1
+add 34 0
+add 21 0
+add 44 1
+add 10 0
+add 9 7
+add 50 5
+add 20 18
+add 29 19
+add 45 4
+add 27 20
+add 34 2
+add 52 6
+add 29 0
+add 7 11
+add 48 -7
+add 18 5
+add 37 2
+contains 21
+contains 14
+contains 45
+contains 14
+contains 9
+contains 4
+contains 23
+contains 38
+contains 40
+contains 2

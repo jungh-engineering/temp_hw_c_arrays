@@ -1,0 +1,52 @@
+Command: display data
+	Count of elements in array: 0
+Command: display all
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+	SIZE of array: 20
+Command: add 12
+	12 successfully added
+Command: add 28
+	28 successfully added
+Command: add 25
+	25 successfully added
+Command: add 33
+	33 successfully added
+Command: add 37
+	37 successfully added
+Command: add 29
+	29 successfully added
+Command: add 17
+	17 successfully added
+Command: add 24
+	24 successfully added
+Command: add 20
+	20 successfully added
+Command: add 27
+	27 successfully added
+Command: add 6 -6
+	6 successfully added
+Command: add 12 15
+	12 successfully added
+Command: add 18 -1
+	18 successfully added
+Command: add 51 0
+	51 successfully added
+Command: add 5 -4
+	5 successfully added
+Command: add 24 3
+	24 successfully added
+Command: add 25 3
+	25 successfully added
+Command: add 32 -6
+	32 successfully added
+Command: add 13 18
+	13 successfully added
+Command: add 25 4
+	25 successfully added
+Command: display data
+	32, 5, 51, 18, 25, 25, 24, 6, 12, 28, 25, 33, 37, 29, 17, 24, 20, 27, 12, 13
+	Count of elements in array: 20
+Command: add 50 0
+	50 not added
+Command: add 27 0
+	27 not added

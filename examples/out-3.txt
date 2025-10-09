@@ -1,0 +1,60 @@
+Command: add 50 -4
+	50 successfully added
+Command: add 18 0
+	18 successfully added
+Command: add 14 1
+	14 successfully added
+Command: add 34 0
+	34 successfully added
+Command: add 21 0
+	21 successfully added
+Command: add 44 1
+	44 successfully added
+Command: add 10 0
+	10 successfully added
+Command: add 9 7
+	9 successfully added
+Command: add 50 5
+	50 successfully added
+Command: add 20 18
+	20 successfully added
+Command: add 29 19
+	29 successfully added
+Command: add 45 4
+	45 successfully added
+Command: add 27 20
+	27 successfully added
+Command: add 34 2
+	34 successfully added
+Command: add 52 6
+	52 successfully added
+Command: add 29 0
+	29 successfully added
+Command: add 7 11
+	7 successfully added
+Command: add 48 -7
+	48 successfully added
+Command: add 18 5
+	18 successfully added
+Command: add 37 2
+	37 successfully added
+Command: contains 21
+	21 contained in array
+Command: contains 14
+	14 contained in array
+Command: contains 45
+	45 contained in array
+Command: contains 14
+	14 contained in array
+Command: contains 9
+	9 contained in array
+Command: contains 4
+	4 not contained in array
+Command: contains 23
+	23 not contained in array
+Command: contains 38
+	38 not contained in array
+Command: contains 40
+	40 not contained in array
+Command: contains 2
+	2 not contained in array

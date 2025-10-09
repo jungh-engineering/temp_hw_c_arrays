@@ -1,0 +1,60 @@
+Command: add 34 0
+	34 successfully added
+Command: add 12 0
+	12 successfully added
+Command: add 31 0
+	31 successfully added
+Command: add 16 1
+	16 successfully added
+Command: add 53 -1
+	53 successfully added
+Command: add 10 -5
+	10 successfully added
+Command: add 47 15
+	47 successfully added
+Command: add 20 19
+	20 successfully added
+Command: add 30 -4
+	30 successfully added
+Command: add 52 11
+	52 successfully added
+Command: add 14 21
+	14 successfully added
+Command: add 33 20
+	33 successfully added
+Command: add 42 5
+	42 successfully added
+Command: add 54 -3
+	54 successfully added
+Command: add 12 -8
+	12 successfully added
+Command: add 13 0
+	13 successfully added
+Command: add 40 17
+	40 successfully added
+Command: add 49 4
+	49 successfully added
+Command: add 53 -9
+	53 successfully added
+Command: add 18 14
+	18 successfully added
+Command: find 20
+	20 found at index 15
+Command: find 53
+	53 found at index 0
+Command: find 12
+	12 found at index 2
+Command: find 53
+	53 found at index 0
+Command: find 52
+	52 found at index 16
+Command: find 19
+	19 not found in array
+Command: find 8
+	8 not found in array
+Command: find 35
+	35 not found in array
+Command: find 23
+	23 not found in array
+Command: find 43
+	43 not found in array

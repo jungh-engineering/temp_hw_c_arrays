@@ -1,0 +1,49 @@
+Command: add 38 0
+	38 successfully added
+Command: add 52 4
+	52 successfully added
+Command: add 15 -9
+	15 successfully added
+Command: add 44 7
+	44 successfully added
+Command: add 12 3
+	12 successfully added
+Command: add 53 4
+	53 successfully added
+Command: add 32 -9
+	32 successfully added
+Command: add 32 2
+	32 successfully added
+Command: add 35 -3
+	35 successfully added
+Command: add 48 21
+	48 successfully added
+Command: add 38 28
+	38 successfully added
+Command: add 9 13
+	9 successfully added
+Command: add 52 10
+	52 successfully added
+Command: add 21 7
+	21 successfully added
+Command: add 45 -8
+	45 successfully added
+Command: add 17 -3
+	17 successfully added
+Command: add 36 -2
+	36 successfully added
+Command: add 38 32
+	38 successfully added
+Command: add 47 28
+	47 successfully added
+Command: add 32 -8
+	32 successfully added
+Command: display data
+	32, 36, 17, 45, 35, 32, 15, 32, 38, 52, 12, 21, 53, 44, 48, 52, 38, 9, 38, 47
+	Count of elements in array: 20
+Command: clear 
+Command: display data
+	Count of elements in array: 0
+Command: display all
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+	SIZE of array: 20
