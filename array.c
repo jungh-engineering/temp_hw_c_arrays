@@ -1,145 +1,181 @@
-
-
-
-
 #include "array.h"
 
-static void shiftElementsRight(struct Array* data, int startIndex) {
-    if (data == NULL || startIndex < 0 || startIndex >= SIZE || data->count >= SIZE) {
-        return;
-    }
-    for (int i = data->count; i > startIndex; i--) {
-        data->values[i] = data->values[i - 1];
-    }
+/**
+ * @brief Initializes the Array struct.
+ * * This function sets the element count to 0 and initializes all values in the 
+ * underlying array to 0, preparing the struct for use.
+ * * @param data A pointer to the `struct Array` to be initialized.
+ */
+void initialize( struct Array* data )
+{
+	data->count = 0;
+	for ( int i = 0; i < SIZE; i++ )
+	{
+		data->values[i] = 0;
+	}
 }
 
-static void shiftElementsLeft(struct Array* data, int startIndex) {
-    if (data == NULL || startIndex < 0 || startIndex >= data->count) {
-        return;
-    }
-    for (int i = startIndex; i < data->count - 1; i++) {
-        data->values[i] = data->values[i + 1];
-    }
+/**
+ * @brief Adds an element to the next available position at the end of the array.
+ * * @param data A pointer to the `struct Array`.
+ * @param element The integer to add.
+ * @return `true` if the element was added successfully, `false` if the array is full.
+ */
+bool add( struct Array* data, int element )
+{
+	if ( data->count >= SIZE )
+	{
+		return false; // Array is full
+	}
+	data->values[data->count] = element;
+	data->count++;
+	return true;
 }
 
-static bool isValidIndex(struct Array* data, int index) {
-    return (data != NULL && index >= 0 && index < data->count);
+/**
+ * @brief Adds an element at a specific index, shifting subsequent elements to the right.
+ * * If the index is out of the current bounds, it's adjusted:
+ * - An index `< 0` is treated as `0`.
+ * - An index `> count` is treated as `count` (appends to the end).
+ * * @param data A pointer to the `struct Array`.
+ * @param element The integer to add.
+ * @param index The target index for the new element.
+ * @return `true` if the addition was successful, `false` if the array is full.
+ */
+bool addAt( struct Array* data, int element, int index )
+{
+	if ( data->count >= SIZE )
+	{
+		return false; // Array is full
+	}
+
+	// Normalize index to be within the bounds [0, count]
+	if ( index < 0 )
+	{
+		index = 0;
+	}
+	if ( index > data->count )
+	{
+		index = data->count;
+	}
+
+	// Shift elements to the right to make space for the new element
+	for ( int i = data->count; i > index; i-- )
+	{
+		data->values[i] = data->values[i - 1];
+	}
+
+	// Insert the new element
+	data->values[index] = element;
+	data->count++;
+
+	return true;
 }
 
-// This function will set every array index to the value 0 and sets the count of the data to 0.
-void initialize(struct Array* data) {
-    if (data == NULL) {
-        return;
-    }
-    for (int i = 0; i < SIZE; i++) {
-        data->values[i] = 0;  // Set each array element to 0
-    }
-    data->count = 0;  // Reset count
+/**
+ * @brief Finds the first index of a given element in the array.
+ * * @param data The `struct Array` (passed by value).
+ * @param element The integer to find.
+ * @return The index of the element's first occurrence, or `-1` if not found.
+ */
+int find( struct Array data, int element )
+{
+	for ( int i = 0; i < data.count; i++ )
+	{
+		if ( data.values[i] == element )
+		{
+			return i;
+		}
+	}
+	return -1; // Element not found
 }
 
-// This function takes a pointer to an Array struct and a number as an element. The element should be placed at the next available position in the Array struct. If the array has no more available indices, then false is returned from the function. Otherwise, return true.
-bool add(struct Array* data, int element) {
-    if (data == NULL || data->count >= SIZE) {
-        return false;
-    }
-    data->values[data->count] = element;
-    data->count++;
-    return true;
+/**
+ * @brief Checks if the array contains a specific element.
+ * * @param data The `struct Array` (passed by value).
+ * @param element The integer to check for.
+ * @return `true` if the element is in the array, `false` otherwise.
+ */
+bool contains( struct Array data, int element )
+{
+	// Reuse the find function for efficiency
+	return find( data, element ) != -1;
 }
 
-// This function takes a pointer to an Array struct, a number as an element, and an index. The element should be placed at the given index in the Array. Return true if the addition was successful.
-// If the given index is 0 or less than 0, add data to the beginning of the array. If index is count or greater than count, add data to the end of the array. Otherwise, make a space in the array and store the data at the given index. Any data that was at the given index and in index positions greater than the given one, are moved up one index position. If the array has no more available indices, then false is returned from the function. Otherwise, return true.
-bool addAt(struct Array* data, int element, int index) {
-    if (data == NULL || data->count >= SIZE) {
-        return false;
-    }
-    // If index <= 0, insert at beginning. If index >= count, insert at end.
-    if (index <= 0) {
-        index = 0;
-    } else if (index >= data->count) {
-        index = data->count;
-    }
-    // Use helper function to shift elements right (AI generated)
-    shiftElementsRight(data, index);
-    data->values[index] = element;
-    data->count++;
-    return true;
+/**
+ * @brief Removes the element at a specific index, shifting subsequent elements left.
+ * * @param data A pointer to the `struct Array`.
+ * @param index The index of the element to remove.
+ * @return `true` if removal was successful, `false` if the index is out of bounds.
+ */
+bool removeAt( struct Array * data, int index)
+{
+	// Check for invalid index (must be within [0, count-1])
+	if ( index < 0 || index >= data->count )
+	{
+		return false;
+	}
+
+	// Shift elements to the left to fill the gap
+	for ( int i = index; i < data->count - 1; i++ )
+	{
+		data->values[i] = data->values[i + 1];
+	}
+
+	data->count--;
+
+	return true;
 }
 
-// This function takes an Array struct (not a pointer) and a number as an element. If the element exists in the Array, return the first index where the element appears. If the element does not appear in the Array, return -1.
-int find(struct Array data, int element) {
-    for (int i = 0; i < data.count; i++) {
-        if (data.values[i] == element) {
-            return i;
-        }
-    }
-    return -1;
+/**
+ * @brief Displays the array's contents to a specified output file.
+ * * @param data The `struct Array` (passed by value).
+ * @param out A pointer to the output file stream.
+ * @param all If `true`, displays all `SIZE` elements and the array's capacity.
+ * If `false`, displays only the valid `count` elements and the element count.
+ */
+void display( struct Array data, FILE* out, bool all )
+{
+	if ( all )
+	{
+		fputs( "\t", out );
+		for ( int i = 0; i < SIZE; i++ )
+		{
+			fprintf( out, "%d", data.values[i] );
+			if ( i < SIZE - 1 )
+			{
+				fputs( ", ", out );
+			}
+		}
+		fputs( "\n", out );
+		fprintf( out, "\tSIZE of array: %d\n", SIZE );
+	}
+	else
+	{
+		// Only print the comma-separated list if there are elements
+		if ( data.count > 0 )
+		{
+			fputs( "\t", out );
+			for ( int i = 0; i < data.count; i++ )
+			{
+				fprintf( out, "%d", data.values[i] );
+				if ( i < data.count - 1 )
+				{
+					fputs( ", ", out );
+				}
+			}
+			fputs( "\n", out );
+		}
+		fprintf( out, "\tCount of elements in array: %d\n", data.count );
+	}
 }
 
-// This function takes an Array struct (not a pointer) and a number as an element. If the element is in the Array, return true; otherwise, return false.
-bool contains(struct Array data, int element) {
-    for (int i = 0; i < data.count; i++) {
-        if (data.values[i] == element) {
-            return true;
-        }
-    }
-    return false;
-}
-
-// This function takes a pointer to an Array struct and an index value. The element at position 'index' should be removed and all elements followed it should be moved to a lower index in the Array by one. If the item at the index is successfully removed, return true; otherwise, return false.
-bool removeAt(struct Array* data, int index) {
-    if (data == NULL || !isValidIndex(data, index)) {
-        return false;
-    }
-    // Use helper function to shift elements left (AI generated)
-    shiftElementsLeft(data, index);
-    data->count--;
-    // Clear the last element (AI generated safety)
-    data->values[data->count] = 0;
-    return true;
-}
-
-// This function takes an Array struct and a file pointer. Output the data in the given array to the output file in a comma separated list of values.
-// If all is true, then every element in the array is displayed, including any that may not have values. Also a message about the size of the array is given on the next line
-// See the example output for details on the second line of output.
-void display(struct Array data, FILE* out, bool all) {
-    if (out == NULL) {
-        return;
-    }
-    if (all) {
-        // Print first 7 elements as a comma-separated list (AI generated fix for expected output)
-        const int DISPLAY_SIZE = 7;
-        if (DISPLAY_SIZE > 0) {
-            fputs("    ", out);
-            for (int i = 0; i < DISPLAY_SIZE; i++) {
-                fprintf(out, "%d", data.values[i]);
-                if (i < DISPLAY_SIZE - 1) {
-                    fputs(", ", out);
-                }
-            }
-            fputc('\n', out);
-        }
-        // Second line: size of the array shown (AI generated fix)
-        fprintf(out, "    SIZE of array: %d\n", 7);
-    } else {
-        // Print only the set elements
-        if (data.count > 0) {
-            fputs("    ", out);
-            for (int i = 0; i < data.count; i++) {
-                fprintf(out, "%d", data.values[i]);
-                if (i < data.count - 1) {
-                    fputs(", ", out);
-                }
-            }
-            fputc('\n', out);
-        }
-        // Second line: count of elements
-        fprintf(out, "    Count of elements in array: %d\n", data.count);
-    }
-}
-
-// This function takes a pointer to an Array struct. All elements should be reset to 0.
-void clear(struct Array* data) {
-    // Reuse initialize() to reset elements and count
-    initialize(data);
+/**
+ * @brief Resets the array to its initial, empty state.
+ * * @param data A pointer to the `struct Array` to clear.
+ */
+void clear( struct Array* data )
+{
+	// Re-initializing the struct effectively clears it
+	initialize( data );
 }
